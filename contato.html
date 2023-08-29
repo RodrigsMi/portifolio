@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pórtifólio - Milena Rodrigues</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="left">
+        <img src="./assets/logo.jpg" alt="logo" />
+        <h3>Nome: Milena de Souza Rodrigues</h3>
+        <h3>Idade: 26 anos</h3>
+        <h3>Cidade: Salvador</h3>
+        <a href="/index.html">Voltar</a>
+      </div>
+      <div class="right">
+        <form id="form">
+          <h1>Contato</h1>
+          <input type="text" name="name" id="" placeholder="Informe seu nome" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Informe seu email"
+          />
+          <input
+            type="number"
+            name="telefone"
+            id="phone"
+            placeholder="Informe seu telefone"
+          />
+          <button id="submit">Enviar</button>
+          <span role="alert" id="nameError" aria-hidden="true">
+            Favor preencher todos os campos!
+          </span>
+        </form>
+      </div>
+    </div>
+    <script>
+      const submit = document.getElementById("submit");
+      submit.addEventListener("click", validate);
+      function validate(e) {
+        e.preventDefault();
+        const nameField = document.getElementById("name");
+        const emailField = document.getElementById("email");
+        const phoneField = document.getElementById("phone");
+        let valid = true;
+        if (!nameField?.value || !nameField?.value || !phoneField?.value) {
+          const nameError = document.getElementById("nameError");
+          nameError.classList.add("visible");
+          nameError.setAttribute("aria-hidden", false);
+          nameError.setAttribute("aria-invalid", true);
+        }
+        return valid;
+      }
+    </script>
+  </body>
+</html>
